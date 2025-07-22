@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Profile Scraper",
+  "description": "Scrape LinkedIn profiles and log data using background script.",
+  "version": "1.0",
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["https://www.linkedin.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/search/results/people/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "LinkedIn Scraper"
+  }
+}
